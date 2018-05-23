@@ -1,0 +1,2 @@
+class WebAddress < ApplicationRecord
+end
