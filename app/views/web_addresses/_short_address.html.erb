@@ -1,3 +1,27 @@
 <div id="result">
-  short_address <%= Time.now %>
+  <div class="row">
+    <div class="col s12 m12">
+      <% if web_address.persisted? %>
+          <div class="card green darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Here is your tiny url</span>
+              <pre><%= punch_url(token: web_address.tiny_url) %></pre>
+            </div>
+          </div>
+      <% else %>
+          <div class="card red darken-1">
+            <div class="card-content white-text">
+              <p>
+                Unable to create tiny url for <%= web_address.url %> right now, please try after some time.
+              <ul>
+                <% web_address.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+              </p>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
 </div>

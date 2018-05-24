@@ -1,2 +1,2 @@
-$('#result').replaceWith("<%=escape_javascript(render(partial: 'web_addresses/short_address'))%>");
+$('#result').replaceWith("<%=escape_javascript(render(partial: 'web_addresses/short_address', locals: {web_address: @web_address}))%>");
 $('#web_address_url').val('');

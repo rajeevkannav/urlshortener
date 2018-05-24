@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_23_082854) do
+ActiveRecord::Schema.define(version: 2018_05_23_225532) do
+
+  create_table "punches", force: :cascade do |t|
+    t.integer "web_address_id"
+    t.string "ip_address"
+    t.string "http_referer"
+    t.text "request_object"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["web_address_id"], name: "index_punches_on_web_address_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,6 +43,10 @@ ActiveRecord::Schema.define(version: 2018_05_23_082854) do
     t.text "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tiny_url"
+    t.integer "user_id"
+    t.index ["tiny_url"], name: "index_web_addresses_on_tiny_url", unique: true
+    t.index ["user_id"], name: "index_web_addresses_on_user_id"
   end
 
 end

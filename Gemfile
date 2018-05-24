@@ -66,3 +66,4 @@ end
 gem 'devise' #Flexible authentication solution for Rails
 gem 'materialize-sass'
 gem 'jquery-rails'
+gem 'chartkick'
