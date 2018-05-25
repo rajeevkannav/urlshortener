@@ -24,6 +24,7 @@ class WebAddressesController < ApplicationController
   end
 
   def stats
+    head :not_found unless @web_address
   end
 
   private
@@ -36,6 +37,7 @@ class WebAddressesController < ApplicationController
 
   def get_web_address
     @web_address = WebAddress.where(tiny_url: params[:id]).take
+    render(status: :not_found) and return unless @web_address
   end
 
   def authenticate
