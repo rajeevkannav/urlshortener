@@ -22,13 +22,13 @@ API requests requires an HTTP Token authentication. Authentication Token will be
 ###### Open Stats API
 ```CURL
 curl --request GET \
-  --url https://shielded-brook-39838.herokuapp.com/web_addresses/<:tiny_url>/stats
+  --url https://ushrtnr.herokuapp.com/web_addresses/<:tiny_url>/stats
 ```
 ###### Authenticated Stats API
 
 ```CURL
 curl --request GET \
-  --url https://shielded-brook-39838.herokuapp.com/web_addresses/<:tiny_url>/stats \
+  --url https://ushrtnr.herokuapp.com/web_addresses/<:tiny_url>/stats \
   --header 'authorization: Token token=ZQhAWkjy1hD5vXrRWkFCa7Lq'
 ```  
 

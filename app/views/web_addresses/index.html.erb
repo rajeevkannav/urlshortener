@@ -12,7 +12,7 @@
           <% @web_addresses.each_with_index do |web_address, index| %>
               <li>
                 <div class="collapsible-header">
-                  <%= (index+1) %>. Tiny Url Token: <%= web_address.tiny_url %> -
+                  <%= (index+1) %>. Url <%= punch_url(token: web_address.tiny_url) %>, Token: <%= web_address.tiny_url %> -
                   Punches(<%= punches_count = web_address.punches.count %>)
                 </div>
                 <div class="collapsible-body">
