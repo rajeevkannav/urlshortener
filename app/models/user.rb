@@ -7,4 +7,6 @@ class User < ApplicationRecord
   ##### Associations ###################
   has_many :web_addresses, inverse_of: :user
   has_many :punches, through: :web_addresses
+
+  has_secure_token :auth_token
 end

@@ -1,8 +1,8 @@
 class WebAddress < ApplicationRecord
 
   ##### Validations ####################
-  validates :url, presence: true
-  # validates :tiny_url, presence: true, uniqueness: true
+  validates :url, presence: true, http_url: true
+  validates :tiny_url, presence: true, uniqueness: true
 
   ##### Associations ###################
   belongs_to :user, optional: true
