@@ -22,13 +22,13 @@ API requests requires an HTTP Token authentication. Authentication Token will be
 ###### Open Stats API
 ```CURL
 curl --request GET \
-  --url http://localhost:3000/web_addresses/1/stats
+  --url http://localhost:3000/web_addresses/<:tiny_url>/stats
 ```
 ###### Authenticated Stats API
 
 ```CURL
 curl --request GET \
-  --url http://localhost:3000/web_addresses/2/stats \
+  --url http://localhost:3000/web_addresses/<:tiny_url>/stats \
   --header 'authorization: Token token=ZQhAWkjy1hD5vXrRWkFCa7Lq'
 ```  
 

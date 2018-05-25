@@ -14,11 +14,20 @@ RSpec.describe WebAddress, type: :model do
   context 'Generate tiny-url' do
     describe 'token uniqueness' do
       it 'should generate token unique' do
+        # WebAddress.destroy_all
+        # 10000.times do |i|
+        #   WebAddress.create(url: "https://example#{i}.com")
+        #   expect(i+1).to eq(WebAddress.select(:tiny_url).uniq.count)
+        # end
+        # expect(10000).to eq(WebAddress.select(:tiny_url).uniq.count)
+
         WebAddress.destroy_all
-        10000.times do |i|
+        100.times do |i|
           WebAddress.create(url: "https://example#{i}.com")
+          expect(i+1).to eq(WebAddress.select(:tiny_url).uniq.count)
         end
-        expect(10000).to eq(WebAddress.select(:tiny_url).uniq.count)
+        expect(100).to eq(WebAddress.select(:tiny_url).uniq.count)
+
       end
 
       it 'should not allow common token ' do

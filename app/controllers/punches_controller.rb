@@ -1,7 +1,6 @@
 class PunchesController < ApplicationController
 
   before_action :get_web_address, only: [:punch]
-  before_action :get_punch, only: [:stats]
 
   def punch
     if @web_address
@@ -16,13 +15,10 @@ class PunchesController < ApplicationController
                                             user_agent_metadata: browser.meta
                                         })
 
-      redirect_to(@web_address.url) if @punch.save!
+      redirect_to(@web_address.url) if @punch.save
     else
       redirect_to root_url, notice: 'Requested url Not found.'
     end
-  end
-
-  def stats
   end
 
   private
@@ -31,7 +27,4 @@ class PunchesController < ApplicationController
     @web_address = WebAddress.where(tiny_url: params[:token]).take
   end
 
-  def get_punch
-    @punch = Punch.where(tiny_url: params[:token]).take
-  end
 end

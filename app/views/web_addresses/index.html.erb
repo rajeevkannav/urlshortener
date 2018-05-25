@@ -7,7 +7,7 @@
           </div>
         </div>
     <% else %>
-        <h5>List of web addresses. Please do click to explore more.</h5>
+        <h5>List of web addresses. please do click to explore more.</h5>
         <ul class="collapsible">
           <% @web_addresses.each_with_index do |web_address, index| %>
               <li>
@@ -37,5 +37,6 @@
 <script>
     $(document).ready(function () {
         $('.collapsible').collapsible();
+        $("ul.collapsible > li:nth-child(1) > div.collapsible-header").trigger('click');
     });
 </script>

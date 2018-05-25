@@ -35,7 +35,7 @@ class WebAddressesController < ApplicationController
   end
 
   def get_web_address
-    @web_address = WebAddress.find(params[:id])
+    @web_address = WebAddress.where(tiny_url: params[:id]).take
   end
 
   def authenticate

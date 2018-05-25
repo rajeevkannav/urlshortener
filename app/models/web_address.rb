@@ -14,16 +14,19 @@ class WebAddress < ApplicationRecord
 
   private
 
-  # 2.4.1 :011 > a = []
+  # 2.4.1 :001 > a = []
   # => []
-  # 2.4.1 :012 > 10000000.times{a <<  SecureRandom.urlsafe_base64(6, false) }
+  # 2.4.1 :002 > 10.times{ Thread.new { 1000000.times{a <<  SecureRandom.urlsafe_base64(6, false) } } }
+  # => 10
+  # 2.4.1 :003 > a.size
+  # => 1226822
+  # 2.4.1 :004 > a.size
+  # => 3206148
+  # 2.4.1 :005 > a.size
   # => 10000000
-  # 2.4.1 :013 > a.size
+  # 2.4.1 :006 > a.uniq.size
   # => 10000000
-  # 2.4.1 :014 > a.uniq.size
-  # => 10000000
-  # 2.4.1 :015 >
-
+  
   def generate_tiny_url_token
     self.tiny_url = SecureRandom.urlsafe_base64(4.5, false)
   end
